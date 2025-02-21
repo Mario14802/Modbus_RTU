@@ -1,0 +1,15 @@
+../Drivers/ModBus_RTU/Modbus_Master.c:12:6:MB_Master_Transmit	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:34:13:MB_Master_Init	16	static
+../Drivers/ModBus_RTU/Modbus_Master.c:68:6:MB_Master_TX_Complete	16	static
+../Drivers/ModBus_RTU/Modbus_Master.c:83:13:MB_Master_Add_Byte	16	static
+../Drivers/ModBus_RTU/Modbus_Master.c:98:6:MB_Master_Routine	16	static
+../Drivers/ModBus_RTU/Modbus_Master.c:166:6:MB_Master_ProcessMessage	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:230:13:MB_Master_ReadHoldingRegs	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:254:13:MB_Master_ReadInputRegs	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:278:13:MB_Master_WriteHoldingReg	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:299:13:MB_Master_WriteHoldingRegs	32	static
+../Drivers/ModBus_RTU/Modbus_Master.c:328:13:MB_Master_ReadCoils	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:352:13:MB_Master_ReadInputs	24	static
+../Drivers/ModBus_RTU/Modbus_Master.c:376:13:MB_Master_WriteCoil	16	static
+../Drivers/ModBus_RTU/Modbus_Master.c:397:13:MB_Master_WriteCoils	32	static
+../Drivers/ModBus_RTU/Modbus_Master.c:425:13:MB_Master_ReadWriteHoldingRegs	32	static

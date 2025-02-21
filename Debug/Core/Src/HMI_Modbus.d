@@ -26,8 +26,8 @@ Core/Src/HMI_Modbus.o: ../Core/Src/HMI_Modbus.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
- ../Core/Src/../Inc/../../Drivers/CMSIS/ModBus_RTU/Modbus_Slave.h \
- ../Core/Src/../Inc/../../Drivers/CMSIS/ModBus_RTU/Modbus_MISC.h \
+ ../Core/Src/../Inc/../../Drivers/ModBus_RTU/Modbus_Slave.h \
+ ../Core/Src/../Inc/../../Drivers/ModBus_RTU/Modbus_MISC.h \
  ../Core/Src/../Inc/Modbus_RegMap.h ../Core/Src/../Inc/NV_Params.h
 ../Core/Src/../Inc/HMI_Modbus.h:
 ../Core/Src/../Inc/main.h:
@@ -57,7 +57,7 @@ Core/Src/HMI_Modbus.o: ../Core/Src/HMI_Modbus.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
-../Core/Src/../Inc/../../Drivers/CMSIS/ModBus_RTU/Modbus_Slave.h:
-../Core/Src/../Inc/../../Drivers/CMSIS/ModBus_RTU/Modbus_MISC.h:
+../Core/Src/../Inc/../../Drivers/ModBus_RTU/Modbus_Slave.h:
+../Core/Src/../Inc/../../Drivers/ModBus_RTU/Modbus_MISC.h:
 ../Core/Src/../Inc/Modbus_RegMap.h:
 ../Core/Src/../Inc/NV_Params.h:

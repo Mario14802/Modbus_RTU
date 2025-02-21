@@ -1,0 +1,5 @@
+../Drivers/EEPROM_Flash/EEPROM_DRIVER.c:15:6:EEPROM_Process_U8	16	static
+../Drivers/EEPROM_Flash/EEPROM_DRIVER.c:23:6:EEPROM_Process_U16	16	static
+../Drivers/EEPROM_Flash/EEPROM_DRIVER.c:34:6:EEPROM_Process_U32	16	static
+../Drivers/EEPROM_Flash/EEPROM_DRIVER.c:48:6:EEPROM_Process_Flt	24	static
+../Drivers/EEPROM_Flash/EEPROM_DRIVER.c:63:6:EEPROM_Process_Area	24	static

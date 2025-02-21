@@ -24,6 +24,7 @@ C_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Drivers/CMSIS/ModBus_RTU \
+Drivers/EEPROM_Flash \
+Drivers/ModBus_RTU \
 Drivers/STM32F4xx_HAL_Driver/Src \
 

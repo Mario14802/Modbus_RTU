@@ -10,7 +10,8 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
--include Drivers/CMSIS/ModBus_RTU/subdir.mk
+-include Drivers/ModBus_RTU/subdir.mk
+-include Drivers/EEPROM_Flash/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -61,8 +62,8 @@ all: main-build
 main-build: Modbus_Rtu.elf secondary-outputs
 
 # Tool invocations
-Modbus_Rtu.elf Modbus_Rtu.map: $(OBJS) $(USER_OBJS) C:\Users\MARIO\OneDrive\Desktop\Graduation\NModbus_RTU\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Modbus_Rtu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\MARIO\OneDrive\Desktop\Graduation\NModbus_RTU\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Modbus_Rtu.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Modbus_Rtu.elf Modbus_Rtu.map: $(OBJS) $(USER_OBJS) C:\Users\MARIO\OneDrive\Desktop\Graduation\Modbus_RTU\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Modbus_Rtu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\MARIO\OneDrive\Desktop\Graduation\Modbus_RTU\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Modbus_Rtu.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

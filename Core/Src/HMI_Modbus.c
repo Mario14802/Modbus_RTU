@@ -50,11 +50,11 @@ MB_Status_t MB_StartListening() {
 // The user can implement custom logic here. After the function exits, the Modbus reply will be automatically issued.
 // Callback function when a master sends a request (to read or write data)
 MB_Status_t MB_Request_Recieved(void *ptr) {
-    MB_Slave_t *mb = (MB_Slave_t*) ptr;
+	MB_Slave_t *mb = (MB_Slave_t*) ptr;
 
 
 
-    return MB_STAT_OK;
+	return MB_STAT_OK;
 }
 
 // Initialize Modbus for UART1
@@ -100,12 +100,12 @@ MB_Status_t MB_Init_UART1(UART_HandleTypeDef *huart, uint8_t SLA) {
 	MB.hw_interface.MB_Activate_TX(0);
 
 	// Initialize the Modbus slave
-	uint8_t Ret= MB_Slave_Init(&MB);
+	MB_Slave_Init(&MB);
 
 
-	 Hregs=(HoldingRegs_t*)MB.HoldingRegs;
-	 Iregs=(InputRegs_t*)MB.InputRegs;
+	Hregs=(HoldingRegs_t*)MB.HoldingRegs;
+	Iregs=(InputRegs_t*)MB.InputRegs;
 
-	 return Ret;
+	return MB_STAT_OK;
 
 }

@@ -5,4 +5,4 @@
 ../Core/Src/HMI_Modbus.c:35:13:MB_Activate_TX	16	static
 ../Core/Src/HMI_Modbus.c:43:13:MB_StartListening	8	static
 ../Core/Src/HMI_Modbus.c:52:13:MB_Request_Recieved	24	static
-../Core/Src/HMI_Modbus.c:62:13:MB_Init_UART1	24	static
+../Core/Src/HMI_Modbus.c:62:13:MB_Init_UART1	16	static

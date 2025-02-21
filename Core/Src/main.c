@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "HMI_Modbus.h"
 #include "Modbus_RegMap.h"//used for testing
+#include "Hardware_Interface.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,6 +87,7 @@ int main(void)
   float test3;
   float test4;
   float test5;
+  uint8_t test6;
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -101,6 +103,19 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   MB_Init_UART1(&huart1, 0x1);
+
+  EEPROM_Process_Area(0, ((uint8_t*)Hregs), sizeof(MB.HoldingRegs), Write);
+  EEPROM_Process_Area(0, ((uint8_t*)Iregs), sizeof(MB.InputRegs), Write);
+  EEPROM_Process_Area(0, ((uint8_t*)MB.CoilBits), sizeof(MB.CoilBits), Write);
+  EEPROM_Process_Area(0, ((uint8_t*)MB.InputBits), sizeof(MB.InputBits), Write);
+
+  EEPROM_Process_Area(0, ((uint8_t*)Hregs), sizeof(MB.HoldingRegs), Read);
+  EEPROM_Process_Area(0, ((uint8_t*)Iregs), sizeof(MB.InputRegs), Read);
+  EEPROM_Process_Area(0, ((uint8_t*)MB.CoilBits), sizeof(MB.CoilBits), Read);
+  EEPROM_Process_Area(0, ((uint8_t*)MB.InputBits), sizeof(MB.InputBits), Read);
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,6 +129,7 @@ int main(void)
 		test3=Hregs->sParams.Checksum;//add start 38  qmod_add 39
 		test4=Hregs->System_State;//add start 128 at qmod_add 129
 		test5=Hregs->FOC_State_Machine;//add start 130 at qmod_add 131
+		test6=MB.CoilBits;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

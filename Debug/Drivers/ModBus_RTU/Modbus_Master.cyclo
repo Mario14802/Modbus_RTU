@@ -1,0 +1,15 @@
+../Drivers/ModBus_RTU/Modbus_Master.c:12:6:MB_Master_Transmit	2
+../Drivers/ModBus_RTU/Modbus_Master.c:34:13:MB_Master_Init	8
+../Drivers/ModBus_RTU/Modbus_Master.c:68:6:MB_Master_TX_Complete	2
+../Drivers/ModBus_RTU/Modbus_Master.c:83:13:MB_Master_Add_Byte	2
+../Drivers/ModBus_RTU/Modbus_Master.c:98:6:MB_Master_Routine	13
+../Drivers/ModBus_RTU/Modbus_Master.c:166:6:MB_Master_ProcessMessage	8
+../Drivers/ModBus_RTU/Modbus_Master.c:230:13:MB_Master_ReadHoldingRegs	1
+../Drivers/ModBus_RTU/Modbus_Master.c:254:13:MB_Master_ReadInputRegs	1
+../Drivers/ModBus_RTU/Modbus_Master.c:278:13:MB_Master_WriteHoldingReg	1
+../Drivers/ModBus_RTU/Modbus_Master.c:299:13:MB_Master_WriteHoldingRegs	2
+../Drivers/ModBus_RTU/Modbus_Master.c:328:13:MB_Master_ReadCoils	1
+../Drivers/ModBus_RTU/Modbus_Master.c:352:13:MB_Master_ReadInputs	1
+../Drivers/ModBus_RTU/Modbus_Master.c:376:13:MB_Master_WriteCoil	2
+../Drivers/ModBus_RTU/Modbus_Master.c:397:13:MB_Master_WriteCoils	2
+../Drivers/ModBus_RTU/Modbus_Master.c:425:13:MB_Master_ReadWriteHoldingRegs	2

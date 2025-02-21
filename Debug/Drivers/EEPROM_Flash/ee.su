@@ -1,0 +1,7 @@
+../Drivers/EEPROM_Flash/ee.c:210:6:ee_init	8	static
+../Drivers/EEPROM_Flash/ee.c:219:6:ee_format	40	static
+../Drivers/EEPROM_Flash/ee.c:275:6:ee_read	32	static
+../Drivers/EEPROM_Flash/ee.c:294:6:ee_write	72	static
+../Drivers/EEPROM_Flash/ee.c:375:6:ee_writeToRam	24	static
+../Drivers/EEPROM_Flash/ee.c:389:7:ee_commit	8	static
+../Drivers/EEPROM_Flash/ee.c:400:11:ee_maxVirtualAddress	4	static
