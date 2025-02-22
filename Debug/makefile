@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -54,6 +54,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Modbus_Rtu.list \
 
+OBJCOPY_HEX += \
+Modbus_Rtu.hex \
+
 
 # All Target
 all: main-build
@@ -62,8 +65,8 @@ all: main-build
 main-build: Modbus_Rtu.elf secondary-outputs
 
 # Tool invocations
-Modbus_Rtu.elf Modbus_Rtu.map: $(OBJS) $(USER_OBJS) C:\Users\ramys\OneDrive\SBW\ Project\Embedded\Modbus_RTU-With-EEPROM\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Modbus_Rtu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ramys\OneDrive\SBW Project\Embedded\Modbus_RTU-With-EEPROM\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Modbus_Rtu.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Modbus_Rtu.elf Modbus_Rtu.map: $(OBJS) $(USER_OBJS) C:\Users\MARIO\OneDrive\Desktop\Graduation\Modbus_RTU\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Modbus_Rtu.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\MARIO\OneDrive\Desktop\Graduation\Modbus_RTU\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Modbus_Rtu.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -77,12 +80,17 @@ Modbus_Rtu.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Modbus_Rtu.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Modbus_Rtu.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) Modbus_Rtu.elf Modbus_Rtu.list Modbus_Rtu.map default.size.stdout
+	-$(RM) Modbus_Rtu.elf Modbus_Rtu.hex Modbus_Rtu.list Modbus_Rtu.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
