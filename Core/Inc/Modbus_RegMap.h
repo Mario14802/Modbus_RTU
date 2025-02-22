@@ -58,21 +58,25 @@ typedef struct InputRegs
 enum InputBits // 0 till 15
 {
     //DRV8301 FAULTS 
-    PWRGD,
-    nOCTW,
-    nFAULT
+    MB_Input_PWRGD,
+	MB_Input_nOCTW,
+	MB_Input_nFAULT,
+	MB_Input_Error_Checksum,
 };
 //////////////////
-enum InputCoilBits // 0 till 15
+enum CoilBits // 0 till 15
 {
-    Enable_System,
+	MB_Coil_Enable_System,
     //DRV8301
-    DRV_EN, //1
+	MB_Coil_DRV_EN, //1
     //SPI SELECT SLAVE
-    SPI_SS1,//2
-    SPI_SS2,//2
-    SPI_SS3//2
+	MB_Coil_SPI_SS1,//2
+	MB_Coil_SPI_SS2,//2
+	MB_Coil_SPI_SS3,//2
 
+	MB_Coil_Save_NV_Variables,
+	MB_Coil_Load_NV_Variables,
+	MB_Coil_Reset_Chip,
 };
 #define GetInputBit(bit) MB_Parse_Bit(MB.InputBits, bit)
 #define SetInputBit(bit, State) MB_Encode_Bit(MB.InputBits, bit, State)

@@ -12,6 +12,16 @@
 
 uint8_t EE_Buffer[32];
 
+/*
+ * to retrieve the processed area from the EEPROM
+ * 1. Read the saved area (of type systemparms_t)
+ * 2. calculate the 16-bit checksum (over the length of the systemparams_t bytes -2
+ * 3. compare the computed checksum with the retreived one
+ * 	  compare the lower bytes with the lower 8-bits of the 16-bit
+ * 	  checksum and the higher byte with the higher 8-bit of the 16-bit checksum
+ * 4. return 1 if the checksum matches and 0 otherwise
+ */
+
 void EEPROM_Process_U8(uint16_t Add, uint8_t *Value, bool R_W) {
 	if (!R_W) {
 		ee_write(Add, 1, Value);

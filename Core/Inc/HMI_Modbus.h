@@ -26,7 +26,7 @@ extern HoldingRegs_t *Hregs; //test
 extern InputRegs_t *Iregs;
 
 MB_Status_t Init_HMI(UART_HandleTypeDef *uart, uint8_t SLA);
-
+MB_Status_t MB_Init_UART1(UART_HandleTypeDef *huart, uint8_t SLA);
 
 
 
