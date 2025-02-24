@@ -1,0 +1,41 @@
+if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Save_NV_Variables)) {
+			//compute and save the checksum
+			uint16_t Checksum = 0;
+			for (uint16_t x = 0; x < sizeof(SystemParams_t) - 2; x++) {
+				Checksum += ((uint8_t*) &Hregs->sParams)[x];
+			}
+			//save the checsum into its variables
+			Hregs->sParams.Checksum = Checksum;
+
+			EEPROM_Process_Area(0, (uint8_t*) &Hregs->sParams,
+					sizeof(SystemParams_t), Write);
+			MB_Encode_Bit(MB.CoilBits, MB_Coil_Save_NV_Variables, 0);
+		}
+
+		//to test the loading of data from the emulated EEPROM
+		else if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Load_NV_Variables)) {
+			MB_Encode_Bit(MB.InputBits, MB_Input_Error_Checksum, 0);
+
+			//retreive the data from the EEPROM
+			EEPROM_Process_Area(0, (uint8_t*) &Hregs->sParams,
+					sizeof(SystemParams_t), Read);
+
+			//perform the checksum Calc
+			uint16_t Checksum = 0;
+			for (uint16_t x = 0; x < PARAMS_SINGLE_COPY_SIZE - 2; x++) {
+				Checksum += ((uint8_t*) &Hregs->sParams)[x];
+
+			}
+			//Checksum=Checksum/2;
+			//check if the checksum is OK
+			if (Hregs->sParams.Checksum != Checksum) {
+				MB_Encode_Bit(MB.InputBits, MB_Input_Error_Checksum, 1);
+			}
+
+			MB_Encode_Bit(MB.CoilBits, MB_Coil_Load_NV_Variables, 0);
+		}
+
+		//for externally resetting the chip
+		else if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Reset_Chip)) {
+			HAL_NVIC_SystemReset();
+		}

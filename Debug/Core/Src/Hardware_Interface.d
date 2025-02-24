@@ -27,7 +27,11 @@ Core/Src/Hardware_Interface.o: ../Core/Src/Hardware_Interface.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ ../Core/Inc/HMI_Modbus.h ../Core/Inc/main.h \
+ ../Core/Inc/../../Drivers/ModBus_RTU/Modbus_Slave.h \
+ ../Core/Inc/../../Drivers/ModBus_RTU/Modbus_MISC.h \
+ ../Core/Inc/Modbus_RegMap.h ../Core/Inc/NV_Params.h
 ../Core/Inc/Hardware_Interface.h:
 ../Core/Inc/../../Drivers/EEPROM_Flash/EEPROM_DRIVER.h:
 ../Core/Inc/../../Drivers/EEPROM_Flash/ee.h:
@@ -58,3 +62,9 @@ Core/Src/Hardware_Interface.o: ../Core/Src/Hardware_Interface.c \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+../Core/Inc/HMI_Modbus.h:
+../Core/Inc/main.h:
+../Core/Inc/../../Drivers/ModBus_RTU/Modbus_Slave.h:
+../Core/Inc/../../Drivers/ModBus_RTU/Modbus_MISC.h:
+../Core/Inc/Modbus_RegMap.h:
+../Core/Inc/NV_Params.h:

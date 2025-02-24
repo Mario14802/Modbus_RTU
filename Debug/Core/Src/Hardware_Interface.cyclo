@@ -1,1 +1,2 @@
-../Core/Src/Hardware_Interface.c:10:6:EEPROM_Process_Area_HWIN	1
+../Core/Src/Hardware_Interface.c:12:6:EEPROM_Process_Area_HWIN	1
+../Core/Src/Hardware_Interface.c:18:6:R_W_HoldingReq	7

@@ -22,6 +22,11 @@ uint8_t EE_Buffer[32];
  * 4. return 1 if the checksum matches and 0 otherwise
  */
 
+// Define the size of a single copy of the parameters.
+// For example, if SystemParams_t contains two copies (redundant),
+// then each unique copy is half the size.
+
+
 void EEPROM_Process_U8(uint16_t Add, uint8_t *Value, bool R_W) {
 	if (!R_W) {
 		ee_write(Add, 1, Value);

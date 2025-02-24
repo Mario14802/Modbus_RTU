@@ -33,7 +33,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+//#define PARAMS_SINGLE_COPY_SIZE (sizeof(SystemParams_t) / 2)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -81,12 +81,7 @@ int main(void) {
 	HAL_Init();
 
 	/* USER CODE BEGIN Init */
-	float test1;
-	float test2;
-	float test3;
-	float test4;
-	float test5;
-	uint8_t test6;
+
 	/* USER CODE END Init */
 
 	/* Configure the system clock */
@@ -103,18 +98,6 @@ int main(void) {
 	/* USER CODE BEGIN 2 */
 	MB_Init_UART1(&huart1, 0x1);
 
-	//EEPROM_Process_Area(0, ((uint8_t*) Hregs->sParams), sizeof(SystemParams_t),
-	//		Write);
-	//EEPROM_Process_Area(0, ((uint8_t*)Iregs), sizeof(MB.InputRegs), Write);
-	//EEPROM_Process_Area(0, ((uint8_t*)MB.CoilBits), sizeof(MB.CoilBits), Write);
-	//EEPROM_Process_Area(0, ((uint8_t*)MB.InputBits), sizeof(MB.InputBits), Write);
-
-	//to be called right after the modbus is initialized
-	//EEPROM_Process_Area(0, ((uint8_t*) Hregs->sParams), sizeof(SystemParams_t),
-	//		Read);
-	//EEPROM_Process_Area(0, ((uint8_t*)Iregs), sizeof(MB.InputRegs), Read);
-	//EEPROM_Process_Area(0, ((uint8_t*)MB.CoilBits), sizeof(MB.CoilBits), Read);
-	//EEPROM_Process_Area(0, ((uint8_t*)MB.InputBits), sizeof(MB.InputBits), Read);
 
 	/* USER CODE END 2 */
 
@@ -122,54 +105,8 @@ int main(void) {
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		MB_Slave_Routine(&MB, HAL_GetTick());
-//testing for holding reg to see if the addresse are aligend
-		//test1 = Hregs->sParams.Iq_Kp;  //add start 0 which means qmod_add 1
-		//test2 = Hregs->sParams.Idq_Filter_Const;  //add start 10 qmod_add 11
-		//test3 = Hregs->sParams.Checksum;  //add start 38  qmod_add 39
-		//test4 = Hregs->System_State;  //add start 128 at qmod_add 129
-		//test5 = Hregs->FOC_State_Machine;  //add start 130 at qmod_add 131
-		//test6 = MB.CoilBits;
-
 		//to test the saving t=of data into the EMuated EEPROM
-		if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Save_NV_Variables)) {
-			//compute and save the checksum
-			uint16_t Checksum = 0;
-			for (uint16_t x = 0; x < sizeof(SystemParams_t) - 2; x++) {
-				Checksum += ((uint8_t*) &Hregs->sParams)[x];
-			}
-			//save the checsum into its variables
-			Hregs->sParams.Checksum = Checksum;
-
-			EEPROM_Process_Area(0, (uint8_t*) &Hregs->sParams,
-					sizeof(SystemParams_t), Write);
-			MB_Encode_Bit(MB.CoilBits, MB_Coil_Save_NV_Variables, 0);
-		}
-
-		//to test the loading of data from the emulated EEPROM
-		else if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Load_NV_Variables)) {
-			MB_Encode_Bit(MB.InputBits, MB_Input_Error_Checksum, 0);
-
-			//retreive the data from the EEPROM
-			EEPROM_Process_Area(0, (uint8_t*) &Hregs->sParams,
-					sizeof(SystemParams_t), Read);
-
-			//perform the checksum Calc
-			uint16_t Checksum = 0;
-			for (uint16_t x = 0; x < sizeof(SystemParams_t) - 2; x++) {
-				Checksum += ((uint8_t*) &Hregs->sParams)[x];
-			}
-			//check if the checksum is OK
-			if (Hregs->sParams.Checksum != Checksum) {
-				MB_Encode_Bit(MB.InputBits, MB_Input_Error_Checksum, 1);
-			}
-
-			MB_Encode_Bit(MB.CoilBits, MB_Coil_Load_NV_Variables, 0);
-		}
-
-		//for externally resetting the chip
-		else if (MB_Parse_Bit(MB.CoilBits, MB_Coil_Reset_Chip)) {
-			HAL_NVIC_SystemReset();
-		}
+		R_W_HoldingReq();
 
 		/* USER CODE END WHILE */
 
@@ -318,17 +255,17 @@ void Error_Handler(void) {
 
 #ifdef  USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
 void assert_failed(uint8_t *file, uint32_t line)
 {
-  /* USER CODE BEGIN 6 */
+	/* USER CODE BEGIN 6 */
 	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-  /* USER CODE END 6 */
+	/* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
