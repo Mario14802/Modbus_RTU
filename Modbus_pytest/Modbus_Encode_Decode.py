@@ -2,15 +2,15 @@ import struct
 import numpy as np
 from pymodbus.client import ModbusSerialClient
  
-port = 'COM9'
+port = 'COM7'
 baud = 115200
 SLA = 1
  
 def main():
    
     client = ModbusSerialClient(port=port,baudrate=baud)
-    Result = client.read_holding_registers(0,2,SLA)
-   
+    Result = client.read_holding_registers(address=0,count=2,slave=SLA)
+
    
     Res = Get_Float(Result.registers,0)
    
@@ -21,9 +21,9 @@ def main():
     #set the Iq_Kp
     Iq_Kp = 20.5
     HoldingRegisters = Encode_Float(Iq_Kp)
-    Result = client.write_registers(0,HoldingRegisters,SLA)
+    Result = client.write_registers(address=0,values=HoldingRegisters,slave=SLA)
    
-    Result = client.read_holding_registers(0,2,SLA)
+    Result = client.read_holding_registers(address=0,count=2,slave=SLA)
     F = Get_Float(Result.registers,0)
     pass
  
