@@ -16,7 +16,7 @@
 #define Read 1
 
 #define Size 				(sizeof(SystemParams_t))
-#define StartAfterCheckSum	6
+#define StartAfterCheckSum	4
 
 typedef enum {
 	MB_COIL_NV_NOTSAVED,

@@ -30,6 +30,7 @@ if client.connect():
 
     # Step 1: Read holding registers (for example, 8 registers starting at address 0)
     response = client.read_holding_registers(address=MB_REGISTERS_START, count=MB_REGISTERS_COUNT, slave=1)
+    response = client.read_holding_registers(address=34, count=5, slave=1)
     if response.isError():
         print("Error reading registers:", response)
     else:
@@ -47,7 +48,7 @@ if client.connect():
     if response.isError():
         print("Error reading discrete input:", response)
     else:
-        print("CheckSum input status:", response.bits[0])
+        print("CheckSum input status if false working then the checksum matches:", response.bits[0])
     
     # Close the connection after reading
     client.close()

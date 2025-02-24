@@ -39,6 +39,7 @@ typedef struct
 
     uint16_t Checksum; //38,39
 
+
 }SystemParams_t;
 
 #define SystemParams_Size_Words (sizeof(SystemParams_t)/2)

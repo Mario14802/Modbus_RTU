@@ -18,7 +18,7 @@ if client.connect():
     print("Connected to Modbus Slave!")
 
     # Step 1: Write registers (for testing, writing 8 values starting at register 0)
-    response = client.write_registers(address=0, values=[1, 2, 3, 4, 5, 6, 7, 8], slave=1)
+    response = client.write_registers(address=34, values=[34,35,36,37], slave=1)
     if response.isError():
         print("Error writing registers:", response)
     else:

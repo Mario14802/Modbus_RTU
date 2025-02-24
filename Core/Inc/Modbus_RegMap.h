@@ -77,6 +77,7 @@ enum CoilBits // 0 till 15
 	MB_Coil_Save_NV_Variables,
 	MB_Coil_Load_NV_Variables,
 	MB_Coil_Reset_Chip,
+	Led_Blink
 };
 #define GetInputBit(bit) MB_Parse_Bit(MB.InputBits, bit)
 #define SetInputBit(bit, State) MB_Encode_Bit(MB.InputBits, bit, State)

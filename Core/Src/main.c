@@ -108,6 +108,11 @@ int main(void) {
 		//to test the saving t=of data into the EMuated EEPROM
 		R_W_HoldingReq();
 
+		if (MB_Parse_Bit(MB.CoilBits, Led_Blink)) { // Check the state of coil 0
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET); // Send 1 Turn off the LED
+		} else {
+			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET); //Send 0 Turn on the LED
+		}
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
