@@ -24,8 +24,15 @@ typedef enum {
 	MB_INPUT_ERROR_CHECKSUM
 }EEPROM_Status;
 
+void EE_Write_DI(uint32_t Add, uint32_t Len, uint8_t *Value);
+void EE_Read_DI(uint32_t Add, uint32_t Len, uint8_t *Value);
+void EE_Write2ram_DI(uint32_t Add, uint32_t Len, uint8_t* Data);
+void EE_Commit_DI();
+
+/*
 void EEPROM_Process_Area_HWIN(uint8_t Address, uint8_t *Data, uint8_t Length,
 		bool R_W);
+*/
 
 void R_W_HoldingReq();
 #endif /* HARDWARE_INTERFACE_HARDWARE_INTERFACE_H_ */

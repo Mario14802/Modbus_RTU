@@ -1,6 +1,6 @@
-../Core/Src/main.c:72:5:main	2
-../Core/Src/main.c:127:6:SystemClock_Config	3
-../Core/Src/main.c:171:13:MX_USART1_UART_Init	2
-../Core/Src/main.c:200:13:MX_DMA_Init	1
-../Core/Src/main.c:220:13:MX_GPIO_Init	1
-../Core/Src/main.c:252:6:Error_Handler	1
+../Core/Src/main.c:79:5:main	2
+../Core/Src/main.c:134:6:SystemClock_Config	3
+../Core/Src/main.c:178:13:MX_USART1_UART_Init	2
+../Core/Src/main.c:207:13:MX_DMA_Init	1
+../Core/Src/main.c:227:13:MX_GPIO_Init	1
+../Core/Src/main.c:259:6:Error_Handler	1

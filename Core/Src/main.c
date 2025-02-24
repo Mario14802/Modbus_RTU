@@ -24,6 +24,7 @@
 #include "HMI_Modbus.h"
 #include "Modbus_RegMap.h"//used for testing
 #include "Hardware_Interface.h"
+#include "../../Drivers/EEPROM_Flash/EEPROM_DRIVER.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,6 +50,12 @@ DMA_HandleTypeDef hdma_usart1_tx;
 /* USER CODE BEGIN PV */
 extern MB_Slave_t MB;
 
+AG_HW_Interface_t HWIN = {
+.EE_Write_HWIN = EE_Write_DI,
+.EE_Read_HWIN = EE_Read_DI,
+.EE_Write2ram_HWIN = EE_Write2ram_DI,
+.EE_Commit_HWIN = EE_Commit_DI,
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
